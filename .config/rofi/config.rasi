@@ -4,7 +4,7 @@ configuration {
   display-drun: "Applicaitions";
   display-window: "Windows";
   drun-display-format: "{icon} {name}";
-  font: "NotoSansMono Nerd Font 12";
+  font: "Noto Sans 12";
   modi: "window,run,drun";
   show-icons: true;
   icon-theme: "Dracula";
