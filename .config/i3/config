@@ -56,23 +56,23 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 
 # Start Applications
 bindsym $mod+Ctrl+b exec kitty -e 'bmenu'
-bindsym $mod+F2 exec google-chrome-stable 
+bindsym $mod+F1 exec firefox https://calendar.google.com
+bindsym $mod+F2 exec firefox https://habitica.com
 bindsym $mod+F3 exec pcmanfm
-bindsym $mod+F4 exec kitty -e ranger
+# bindsym $mod+F4 exec kitty -e ranger
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
-bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # focus_follows_mouse no
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -81,10 +81,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -98,9 +98,9 @@ bindsym $mod+b workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
-bindsym $mod+h split h;exec notify-send 'tile horizontally'
-bindsym $mod+v split v;exec notify-send 'tile vertically'
-bindsym $mod+q split toggle
+# bindsym $mod+Shift+h split h;exec notify-send 'tile horizontally'
+# bindsym $mod+Shift+v split v;exec notify-send 'tile vertically'
+bindsym $mod+q split toggle; exec notify-send 'split toggle'
 
 # toggle fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -137,6 +137,15 @@ bindsym $mod+Ctrl+Left workspace prev
 # to display names or symbols instead of plain workspace numbers you can use
 # something like: set $ws1 1:mail
 #                 set $ws2 2:
+# set $ws1 "1:1 "
+# set $ws2 "2:2 "
+# set $ws3 "3:3 "
+# set $ws4 "4:4 "
+# set $ws5 "5:5 "
+# set $ws6 "6:6 "
+# set $ws7 "7:7 "
+# set $ws8 "8:8 "
+
 set $ws1 1
 set $ws2 2
 set $ws3 3
@@ -181,6 +190,15 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 # assign [class="Pale moon"] $ws2
 # assign [class="Pcmanfm"] $ws3
 # assign [class="Skype"] $ws5
+# assign [class = "googlecalendar-nativefier-e22938"] $ws1
+# assign [class = "notion-app"] $ws2
+# assign [class = "firefox"] $ws3
+# assign [class = "Spotify"] $ws4
+# assign [class = "kitty"] $ws5
+# assign [class = "Pcmanfm"] $ws6
+# assign [class = "anki"] $ws7
+# assign [class = "okular"] $ws7
+# assign [class = "VirtualBox Manager"] $ws8
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -210,6 +228,7 @@ for_window [class="Skype"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
+for_window [class="Shutter"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -221,7 +240,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Set shut down, restart and locking features
 bindsym $mod+0 mode "$mode_system"
@@ -276,7 +295,7 @@ exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 # exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
-exec --no-startup-id start_conky_maia
+# exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
@@ -315,29 +334,29 @@ set_from_resource $term_color15    color15
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 # bar {
-#	i3bar_command i3bar
-#	status_command i3status
-#	position bottom
-
-## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-#	tray_output primary
-
-#	bindsym button4 nop
-#	bindsym button5 nop
-#  font xft:URWGothic-Book 13
-#  strip_workspace_numbers yes
-
-#  colors {
-#    background #282A36
-#    statusline #F8F8F2
-#    separator  #44475A
-
-#    focused_workspace  #44475A #44475A #F8F8F2
-#    active_workspace   #282A36 #44475A #F8F8F2
-#    inactive_workspace #282A36 #282A36 #BFBFBF
-#    urgent_workspace   #FF5555 #FF5555 #F8F8F2
-#    binding_mode       #FF5555 #FF5555 #F8F8F2
-#  }
+# 	i3bar_command i3bar
+# 	status_command i3status
+# 	position top
+#
+# # please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+# 	tray_output primary
+#
+# 	bindsym button4 nop
+# 	bindsym button5 nop
+#   font xft:JetBrainsMono Nerd Font Mono 12
+#   strip_workspace_numbers yes
+#
+#   colors {
+#     background #282A36
+#     statusline #F8F8F2
+#     separator  #44475A
+#
+#     focused_workspace  #44475A #44475A #F8F8F2
+#     active_workspace   #282A36 #44475A #F8F8F2
+#     inactive_workspace #282A36 #282A36 #BFBFBF
+#     urgent_workspace   #FF5555 #FF5555 #F8F8F2
+#     binding_mode       #FF5555 #FF5555 #F8F8F2
+#   }
 # }
 
 # hide/unhide i3status bar
@@ -368,11 +387,11 @@ gaps outer -2
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
+# smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
-smart_borders on
+# smart_borders on
 
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
 set $mode_gaps Gaps: (o) outer, (i) inner
@@ -416,8 +435,8 @@ mode "$mode_gaps_outer" {
 # startup
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id goldendict
+exec --no-startup-id picom -b
 exec --no-startup-id xrandr --output HDMI-A-0 --primary
-exec --no-startup-id picom
 
 # hide windows title
 for_window [class="^.*"] border pixel 3
@@ -428,5 +447,5 @@ bindsym Mod1+Tab exec rofi -show window
 exec_always --no-startup-id greenclip daemon
 bindsym Mod1+v exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
-exec --no-startup-id ibus-daemon
+# exec --no-startup-id ibus-daemon
 

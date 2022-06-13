@@ -17,6 +17,7 @@ general {
 }
 
 
+order += "volume master"
 order += "memory"
 order += "cpu_usage"
 # order += "load"
@@ -30,6 +31,11 @@ order += "tztime local"
 # order += "run_watch DHCP"
 # order += "run_watch VPN"
 
+volume master {
+        format = "♪: %volume"
+        format_muted = "♪: muted (%volume)"
+        device = "pulse:1"
+}
 cpu_usage {
 format = " ﬙ %usage "
 }
