@@ -34,21 +34,10 @@ bindsym $mod+Shift+q kill
 
 # start program launcher
 bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+x exec --no-startup-id rofi -show run
 
 # launch categorized menu
-bindsym $mod+z exec --no-startup-id morc_menu
-
-################################################################################################
-## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
-################################################################################################
-
-exec --no-startup-id volumeicon
-bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
-#exec --no-startup-id pulseaudio
-#exec --no-startup-id pa-applet
-#bindsym $mod+Ctrl+m exec pavucontrol
-
-################################################################################################
+# bindsym $mod+z exec --no-startup-id morc_menu
 
 # Screen brightness controls
 # bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
@@ -59,7 +48,6 @@ bindsym $mod+Ctrl+b exec kitty -e 'bmenu'
 bindsym $mod+F1 exec firefox https://calendar.google.com
 bindsym $mod+F2 exec firefox https://habitica.com
 bindsym $mod+F3 exec pcmanfm
-# bindsym $mod+F4 exec kitty -e ranger
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
@@ -364,14 +352,14 @@ set_from_resource $term_color15    color15
 
 # Theme colors
 # class                 border  bground text    indicator child_border
-client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
-client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
-client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
-client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
-client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+client.focused          #f4b8e4 #f4b8e4 #c6d0f5 #f4b8e4   #f4b8e4
+client.focused_inactive #f2d5cf #f2d5cf #c6d0f5 #f2d5cf   #f2d5cf
+client.unfocused        #303446 #303446 #b5bfe2 #303446   #303446
+client.urgent           #44475A #ea999c #c6d0f5 #ea999c   #ea999c
+client.placeholder      #303446 #303446 #c6d0f5 #303446   #303446
 
 
-client.background      #282A36
+client.background      #232634
 
 #############################
 ### settings for i3-gaps: ###
