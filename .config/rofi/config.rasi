@@ -1,5 +1,5 @@
 configuration{
-    modi: "run,drun,window";
+    modi: "run,drun,window,emoji";
     lines: 5;
     font: "JetBrainsMono Nerd Font 14";
     show-icons: true;
@@ -12,6 +12,7 @@ configuration{
     display-drun: "   Apps ";
     display-run: "   Run ";
     display-window: " 﩯  window";
+    display-emoji: "   emoji";
     display-Network: " 󰤨  Network";
     sidebar-mode: true;
 }
@@ -24,8 +25,8 @@ element-text, element-icon , mode-switcher {
 }
 
 window {
-    height: 500px;
-    width: 400px;
+    height: 450px;
+    width: 900px;
     border: 3px;
     border-color: @border-col;
     background-color: @bg-col;
@@ -66,7 +67,7 @@ listview {
     border: 0px 0px 0px;
     padding: 6px 0px 0px;
     margin: 10px 0px 0px 20px;
-    columns: 1;
+    columns: 3;
     background-color: @bg-col;
 }
 
