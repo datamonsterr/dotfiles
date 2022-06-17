@@ -30,6 +30,7 @@ exec --no-startup-id goldendict
 exec --no-startup-id picom -b
 exec_always --no-startup-id ibus-daemon -drvR
 exec_always --no-startup-id greenclip daemon
+exec_always --no-startup-id nm-applet --no-agent
 
 # start a terminal
 bindsym $mod+Return exec kitty
@@ -46,8 +47,8 @@ bindsym $mod+v exec rofi -modi "clipboard:greenclip print" -show clipboard -run-
 
 # Start Applications
 bindsym $mod+Ctrl+b exec kitty -e 'bmenu'
-bindsym $mod+F1 exec firefox https://calendar.google.com
-bindsym $mod+F2 exec firefox https://habitica.com
+bindsym $mod+F1 exec qutebrowser https://calendar.google.com
+bindsym $mod+F2 exec qutebrowser https://habitica.com
 bindsym $mod+F3 exec pcmanfm
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print --release exec "flameshot screen -p ~/Pictures/screenshots/"
@@ -202,10 +203,10 @@ mode "resize" {
         bindsym k resize shrink height 15 px or 15 ppt
         bindsym l resize grow width 15 px or 15 ppt
 
-        bindsym Left resize shrink width 45 px or 45 ppt
-        bindsym Down resize grow height 45 px or 45 ppt
-        bindsym Up resize shrink height 45 px or 45 ppt
-        bindsym Right resize grow width 45 px or 45 ppt
+        bindsym Left resize shrink width 35 px or 35 ppt
+        bindsym Down resize grow height 35 px or 35 ppt
+        bindsym Up resize shrink height 35 px or 35 ppt
+        bindsym Right resize grow width 35 px or 35 ppt
 
         bindsym Return mode "default"
         bindsym Escape mode "default"

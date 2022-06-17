@@ -8,7 +8,6 @@ set fish_color_search_match --background="#44447a"
 
 alias ls="exa -la"
 alias nv="nvim"
-alias cat="bat"
 alias md="mkdir"
 alias rmf="rm -rf"
 alias s="sudo"
