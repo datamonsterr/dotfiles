@@ -10,7 +10,6 @@ alias ls="exa -la"
 alias nv="nvim"
 alias md="mkdir"
 alias rmf="rm -rf"
-alias s="sudo"
-alias se="sudoedit"
+alias feh="feh --image-bg black"
 
 set PATH /home/dat/.cargo/bin $PATH

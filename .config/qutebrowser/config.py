@@ -1,12 +1,3 @@
-import subprocess
-import os
-
-# Load autoconfig
-config.load_autoconfig()
-
-# bindings
-# config.bind("<y><o>", "yank inline [[{url}]][[{title}]]")
-
 # colorscheme
 c.colors.completion.category.bg = "#1E1E28"
 c.colors.completion.category.border.bottom = "#1E1E28"
@@ -91,10 +82,31 @@ c.colors.tabs.pinned.even.fg = "#C9CBFF"
 c.colors.tabs.pinned.odd.bg = "#ABE9B3"
 c.colors.tabs.pinned.odd.fg = "#C9CBFF"
 c.colors.tabs.pinned.selected.even.bg = "#302D41"
-c.colors.tabs.pinned.selected.even.fg = "#D7DAE0"
+c.colors.tabs.pinned.selected.even.fg = "#f2d5cf"
 c.colors.tabs.pinned.selected.odd.bg = "#302D41"
-c.colors.tabs.pinned.selected.odd.fg = "#D7DAE0"
+c.colors.tabs.pinned.selected.odd.fg = "#f2d5cf"
 c.colors.tabs.selected.even.bg = "#302D41"
 c.colors.tabs.selected.even.fg = "#D7DAE0"
 c.colors.tabs.selected.odd.bg = "#302D41"
 c.colors.tabs.selected.odd.fg = "#D7DAE0"
+# Ad blocking
+c.content.blocking.adblock.lists = [
+    "https://easylist.to/easylist/easylist.txt",
+    "https://easylist.to/easylist/easyprivacy.txt",
+    "https://secure.fanboy.co.nz/fanboy-cookiemonster.txt",
+    "https://easylist.to/easylist/fanboy-annoyance.txt",
+    "https://secure.fanboy.co.nz/fanboy-annoyance.txt",
+    "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances.txt",
+    "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2020.txt",
+    "https://github.com/uBlockOrigin/uAssets/raw/master/filters/unbreak.txt",
+    "https://github.com/uBlockOrigin/uAssets/raw/master/filters/resource-abuse.txt",
+    "https://github.com/uBlockOrigin/uAssets/raw/master/filters/privacy.txt",
+    "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters.txt"
+]
+
+c.content.blocking.enabled = True
+c.content.blocking.hosts.lists = [
+    'https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts']
+c.content.blocking.method = 'both'
+# Load autoconfig
+config.load_autoconfig()
