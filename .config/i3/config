@@ -266,3 +266,8 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
+# Note-taker
+for_window [ title="notetaker_window"] floating enable resize set width 700px height 600px
+for_window [ title="notetaker_window"] move position center
+bindsym $mod+Shift+n exec kitty -T=notetaker_window -e daily_note 
+

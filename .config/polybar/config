@@ -17,6 +17,7 @@
 
 [colors]
 background = #232634
+background-opaque = #00
 background-alt = #303446
 foreground = #c6d0f5
 foreground-alt = #b5bfe2
@@ -38,7 +39,7 @@ width = 100%
 height = 25
 fixed-center = true 
 enable-ipc = true
-background = ${colors.background}
+background = ${colors.background-opaque}
 foreground = ${colors.foreground}
 line-size = 2
 line-color = ${colors.peach}
@@ -57,7 +58,7 @@ modules-center = spotify spotify-prev spotify-play-pause spotify-next
 modules-right = pulseaudio memory cpu date
 tray-position = right
 tray-padding = 6
-tray-background = ${colors.background-alt}
+tray-background = ${colors.background-opaque}
 wm-restack = i3
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
