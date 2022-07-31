@@ -17,7 +17,7 @@
 
 [colors]
 background = #232634
-background-opaque = #00
+background-opaque = #80
 background-alt = #303446
 foreground = #c6d0f5
 foreground-alt = #b5bfe2
@@ -45,17 +45,17 @@ line-size = 2
 line-color = ${colors.peach}
 padding-left = 0
 padding-right = 0
-module-margin-left = 1
-module-margin-right = 1
-font-0 = fixed:pixelsize=10;1
+module-margin-left = 2
+module-margin-right = 0
+font-0 = RecMonoCasual NF Bold:size=9
 font-1 = Unifont:fontformat=truetype:size=9:antialias=false,0
-font-2 = siji:pixelsize=10;1
-font-3 = Font Awesome 6 Free:pixelsize=12;2
-font-4 = Font Awesome 6 Free Solid:pixelsize=12;2
-font-5 = Font Awesome 6 Brands:pixelsize=12;2
+font-2 = siji:pixelsize=9;1
+font-3 = Font Awesome 6 Free:pixelsize=9;2
+font-4 = Font Awesome 6 Free Solid:pixelsize=9;2
+font-5 = Font Awesome 6 Brands:pixelsize=;2
 modules-left = i3 xwindow
 modules-center = spotify spotify-prev spotify-play-pause spotify-next
-modules-right = pulseaudio memory cpu date
+modules-right = pulseaudio xkeyboard memory cpu date
 tray-position = right
 tray-padding = 6
 tray-background = ${colors.background-opaque}
@@ -65,52 +65,18 @@ scroll-down = i3wm-wsprev
 cursor-click = pointer
 cursor-scroll = ns-resize
 
-[bar/example2]
-monitor = ${env:MONITOR:HDMI-A-0}
-width = 100%
-height = 30
-fixed-center = true
-enable-ipc = true
-background = ${colors.background}
-foreground = ${colors.foreground}
-line-size = 3
-line-color = #f00
-border-color = none
-module-margin-left = 2
-module-margin-right = 2
-modules-left = bspwm
-modules-center = spotify spotify-prev spotify-play-pause spotify-next
-modules-right = pulseaudio1 date1 powermenu
-tray-padding = 2
-tray-position = right
-wm-restack = bspwm
-cursor-click = pointer
-font-0 = fixed:pixelsize=10;1
-font-1 = Unifont:fontformat=truetype:size=9:antialias=false,0
-font-2 = siji:pixelsize=10;1
-font-3 = Font Awesome 5 Free:size=10;1
-font-4 = Noto Emoji:scale=15:antialias=false,0
-font-5 = Font Awesome 6 Free:pixelsize=12;2
-font-6 = Font Awesome 6 Free Solid:pixelsize=12;2
-font-7 = Font Awesome 6 Brands:pixelsize=12;2
-
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
-format-foreground= ${colors.pink}
+format-foreground= ${colors.foreground}
 
 [module/xkeyboard]
 type = internal/xkeyboard
 blacklist-0 = num lock
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${colors.flamingo}
+format-prefix = "  "
+label-padding-right = 2
 label-layout = %layout%
-label-layout-underline = ${colors.rosewater}
-label-indicator-padding = 1
-label-indicator-margin = 1
-label-indicator-background = ${colors.background-alt}
-label-indicator-underline = ${colors.rosewater}
+; format-underline = ${colors.foreground}
 
 [module/filesystem]
 type = internal/fs
@@ -118,26 +84,7 @@ interval = 25
 mount-0 = /
 label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
-
-[module/bspwm]
-type = internal/bspwm
-label-focused = %icon%
-label-focused-background = ${colors.background-alt}
-label-focused-padding = 2
-label-occupied = %icon%
-label-occupied-padding = 2
-label-urgent = %index%!
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
-label-empty = %icon%
-label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 2
-ws-icon-0 = I;
-ws-icon-1 = II;
-ws-icon-2 = III;
-ws-icon-3 = IV;
-ws-icon-4 = V;
+label-unmounted-foreground = ${colors.foreground}
 
 [module/i3]
 type = internal/i3
@@ -154,9 +101,9 @@ label-mode-background = ${colors.maroon}
 
 ; focused = Active workspace on focused monitor
 label-focused = %index%
-label-focused-foreground= ${colors.background}
-label-focused-background = ${colors.pink}
-label-focused-underline= ${colors.pink}
+label-focused-foreground= ${colors.foreground}
+label-focused-background = ${colors.background-opaque}
+label-focused-underline= ${colors.foreground}
 label-focused-padding = 4
 
 ; unfocused = Inactive workspace on any monitor
@@ -178,54 +125,24 @@ label-urgent-padding = 4
 ; label-separator = |
 
 
-[module/mpd]
-type = internal/mpd
-format-online =  <icon-prev> <icon-stop> <toggle> <icon-next> <label-song>
-icon-prev = "  "
-icon-stop = "  "
-icon-play = "  "
-icon-pause = "  "
-icon-next = "  "
-label-song-ellipsis = true
-
-[module/xbacklight]
-type = internal/xbacklight
-
-format = <label> <bar>
-label = BL
-
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = #fff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #6272A4
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
-
-[module/backlight-acpi]
-inherit = module/xbacklight
-type = internal/backlight
-card = intel_backlight
-
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = "     "
-format-foreground = ${colors.background}
-format-background= ${colors.teal}
-label-padding-right = 4
+format-prefix = "  "
+format-foreground = ${colors.foreground}
+; format-underline = ${colors.foreground}
+; format-background= ${colors.teal}
+label-padding-right = 1
 label = %percentage:2%%
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = "     "
-format-foreground = ${colors.background}
-format-background = ${colors.peach}
-label-padding-right = 4
+format-prefix = "  "
+format-foreground = ${colors.foreground}
+; format-background = ${colors.peach}
+; format-underline = ${colors.foreground}
+label-padding-right = 1
 label = %percentage_used%%
 
 [module/date]
@@ -235,23 +152,11 @@ date =
 date-alt = " %A %d/%m/%Y "
 time = %H:%M
 time-alt = %H:%M:%S
-label-padding-right = 4
-format-prefix = "      "
-format-foreground = ${colors.background}
-format-background = ${colors.yellow}
-label = %date% %time%
-
-[module/date1]
-type = internal/date
-interval = 1
-date = 
-date-alt = " %A %d/%m/%Y "
-time = %H:%M
-time-alt = %H:%M:%S
-label-padding-right = 4
-format-prefix = "      "
-format-foreground = ${colors.foreground}
-format-background = ${colors.background-alt}
+label-padding-right = 1
+format-prefix = "  "
+; format-foreground = ${colors.background}
+; format-background = ${colors.yellow}
+; format-underline = ${colors.foreground}
 label = %date% %time%
 
 [module/pulseaudio]
@@ -263,13 +168,13 @@ label-muted = 🔇 muted
 label-muted-foreground = #666
 use-ui-max = true
 bar-volume-width = 10
-bar-volume-foreground-0 = ${colors.teal}
-bar-volume-foreground-1 = ${colors.teal}
-bar-volume-foreground-2 = ${colors.yellow}
-bar-volume-foreground-3 = ${colors.green}
-bar-volume-foreground-4 = ${colors.pink}
-bar-volume-foreground-5 = ${colors.maroon}
-bar-volume-foreground-6 = ${colors.red} 
+bar-volume-foreground-0 = ${colors.foreground}
+bar-volume-foreground-1 = ${colors.foreground}
+bar-volume-foreground-2 = ${colors.foreground}
+bar-volume-foreground-3 = ${colors.foreground}
+bar-volume-foreground-4 = ${colors.foreground}
+bar-volume-foreground-5 = ${colors.foreground}
+bar-volume-foreground-6 = ${colors.foreground} 
 bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
@@ -280,95 +185,11 @@ bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 click-right = "pavucontrol"
 
-[module/pulseaudio1]
-type = internal/pulseaudio
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
-label-volume-foreground = ${colors.foreground}
-label-muted = 🔇 muted
-label-muted-foreground = #666
-use-ui-max = true
-bar-volume-width = 10
-bar-volume-foreground-0 = ${colors.foreground-alt}
-bar-volume-foreground-1 = ${colors.foreground-alt}
-bar-volume-foreground-2 = ${colors.foreground-alt}
-bar-volume-foreground-3 = ${colors.foreground-alt}
-bar-volume-foreground-4 = ${colors.foreground-alt}
-bar-volume-foreground-5 = ${colors.foreground-alt}
-bar-volume-foreground-6 = ${colors.foreground-alt}
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ━
-bar-volume-fill-font = 2
-bar-volume-empty = ━
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground}
-
-[module/alsa]
-type = internal/alsa
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL
-label-volume-foreground = ${root.foreground}
-format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
-bar-volume-width = 10
-bar-volume-foreground-0 = ${colors.teal}
-bar-volume-foreground-1 = ${colors.teal}
-bar-volume-foreground-2 = ${colors.rosewater}
-bar-volume-foreground-3 = ${colors.flamingo}
-bar-volume-foreground-4 = ${colors.pink}
-bar-volume-foreground-5 = ${colors.peach}
-bar-volume-foreground-6 = ${colors.maroon} 
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
-
-[module/powermenu]
-type = custom/menu
-expand-right = true
-format-spacing = 1
-label-open = 
-label-open-foreground = ${colors.foreground-alt}
-label-close =  cancel
-label-close-foreground = ${colors.foreground-alt}
-label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
-menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
-
-
-[module/polypomo]
-type = custom/script
-exec = ~/polypomo/polypomo
-tail = true
-label = %output%
-click-left = ~/polypomo/polypomo toggle
-click-right = ~/polypomo/polypomo end
-click-middle = ~/polypomo/polypomo lock
-scroll-up = ~/polypomo/polypomo time +60
-scroll-down = ~/polypomo/polypomo time -60
 
 [settings]
 screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
+; compositing-background = xor
+compositing-background = screen
 ;compositing-foreground = source
 ;compositing-border = over
 pseudo-transparency = true

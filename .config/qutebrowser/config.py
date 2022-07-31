@@ -772,10 +772,10 @@ c.colors.webpage.darkmode.algorithm = 'brightness-rgb'
 # "px" suffix.
 # Type: String
 c.fonts.default_size = '11pt'
+c.content.fullscreen.window = True
 
 # Bindings for normal mode
 config.unbind('Sb')
 config.bind('Sd', 'bookmark-del')
 config.bind('Sq', 'bookmark-list -t')
 config.bind("<Ctrl-m>", "hint links spawn vlc {hint-url}")
-
