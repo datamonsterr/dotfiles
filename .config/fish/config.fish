@@ -11,5 +11,6 @@ set fish_color_search_match --background="#44447a"
 alias ls="exa"
 alias nv="nvim"
 alias feh="feh --image-bg black"
+alias yt="ytfzf -t"
 
 set PATH /home/dat/.cargo/bin $PATH

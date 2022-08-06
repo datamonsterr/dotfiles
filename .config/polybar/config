@@ -47,14 +47,13 @@ padding-left = 0
 padding-right = 0
 module-margin-left = 2
 module-margin-right = 0
-font-0 = RecMonoCasual NF Bold:size=9
-font-1 = Unifont:fontformat=truetype:size=9:antialias=false,0
-font-2 = siji:pixelsize=9;1
-font-3 = Font Awesome 6 Free:pixelsize=9;2
-font-4 = Font Awesome 6 Free Solid:pixelsize=9;2
-font-5 = Font Awesome 6 Brands:pixelsize=;2
+font-0 = RecMonoCasual NF Bold:pixelsize=9;0
+font-1 = Unifont:fontformat=truetype:size=10:antialias=false;1
+font-2 = siji:pixelsize=10;1
+font-3 = Font Awesome 6 Free:pixelsize=10;2
+font-4 = Font Awesome 6 Free Solid:pixelsize=10;2
+font-5 = Font Awesome 6 Brands:pixelsize=10;2
 modules-left = i3 xwindow
-modules-center = spotify spotify-prev spotify-play-pause spotify-next
 modules-right = pulseaudio xkeyboard memory cpu date
 tray-position = right
 tray-padding = 6
@@ -197,33 +196,5 @@ pseudo-transparency = true
 [global/wm]
 margin-top = 10
 margin-bottom = 5
-
-; spotify
-[module/spotify]
-type = custom/script
-tail = true
-; prefix symbol is shown before the text
-format-prefix = " "
-format = <label>
-exec = ~/.config/polybar/scripts/scroll_spotify_status.sh
-
-[module/spotify-prev]
-type = custom/script
-exec = echo ""
-format = <label>
-click-left = playerctl previous spotify
-
-[module/spotify-play-pause]
-type = custom/ipc
-hook-0 = echo ""
-hook-1 = echo ""
-initial = 1
-click-left = playerctl play-pause spotify
-
-[module/spotify-next]
-type = custom/script
-exec = echo ""
-format = <label>
-click-left = playerctl next spotifyi
 
 ; vim:ft=dosini
